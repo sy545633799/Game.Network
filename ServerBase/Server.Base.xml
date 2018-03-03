@@ -1,0 +1,448 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Server.Base</name>
+    </assembly>
+    <members>
+        <member name="M:Server.Base.Helper.TimeHelper.ClientNow">
+            <summary>
+            客户端时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Server.Base.NetClient">
+            <summary>
+            Managed TCP client.
+            </summary>
+        </member>
+        <member name="P:Server.Base.NetClient.IsConnected">
+            <summary>
+            Gets the <see cref="T:Server.Base.NetClient"/> connected state.
+            </summary>
+        </member>
+        <member name="E:Server.Base.NetClient.OnClientConnectedEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="E:Server.Base.NetClient.OnClientDisconnectedEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetClient.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Creates a new <see cref="T:Server.Base.NetClient"/> instance.
+            </summary>
+            <param name="host">Remote host or ip</param>
+            <param name="port">Remote port</param>
+            <param name="bufferSize">Buffer size</param>
+        </member>
+        <member name="M:Server.Base.NetClient.Connect">
+            <summary>
+            Connect to the remote host.
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetClient.Disconnect">
+            <summary>
+            Disconnects the <see cref="T:Server.Base.NetClient"/>.
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetClient.OnConnected">
+            <summary>
+            Triggered when the client is connected to the remote end point.
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetClient.BusinessQueue">
+            <summary>
+            业务线程
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetClient.AddReceiveEvent(System.Int32,System.Action{Server.Base.Packets.ClientPacket})">
+            <summary>
+            
+            </summary>
+            <param name="msgid"></param>
+            <param name="event"></param>
+        </member>
+        <member name="M:Server.Base.NetClient.OnDisconnected">
+            <summary>
+            Triggered when the client is disconnected from the remote end point.
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetClient.ProcessReceive(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Process receieve.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Server.Base.NetClient.IO_Completed(System.Object,System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Triggered when a <see cref="T:System.Net.Sockets.SocketAsyncEventArgs"/> async operation is completed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Server.Base.NetClient.Dispose(System.Boolean)">
+            <summary>
+            Dispose the <see cref="T:Server.Base.NetClient"/> instance.
+            </summary>
+        </member>
+        <member name="T:Server.Base.NetConnection">
+            <summary>
+            Represents a network connection.
+            </summary>
+        </member>
+        <member name="F:Server.Base.NetConnection.headSize">
+            <summary>
+            包头长度
+            </summary>
+        </member>
+        <member name="P:Server.Base.NetConnection.Socket">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetConnection.Send(System.Int32,System.Byte[])">
+            <summary>
+            发送
+            </summary>
+            <param name="msgid">消息id</param>
+            <param name="dataList">数据</param>
+        </member>
+        <member name="M:Server.Base.NetConnection.BuildPackage(System.Int32,System.Byte[])">
+            <summary>
+            组包
+            </summary>
+            <param name="msgid">消息id</param>
+            <param name="dataList">数据</param>
+        </member>
+        <member name="M:Server.Base.NetConnection.Send(System.Byte[])">
+            <summary>
+            直接发送数据
+            </summary>
+            <param name="dataList">数据包</param>
+        </member>
+        <member name="M:Server.Base.NetConnection.ForceClose">
+            <summary>
+            强制断开连接
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetConnection.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetConnection.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Server.Base.NetServer">
+            <summary>
+            Creates a new TCP managed server.
+            </summary>
+        </member>
+        <member name="P:Server.Base.NetServer.Configuration">
+            <summary>
+            Gets the <see cref="T:Server.Base.NetServer"/> configuration
+            </summary>
+        </member>
+        <member name="P:Server.Base.NetServer.IsRunning">
+            <summary>
+            获得运行状态
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetServer.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetServer.Finalize">
+            <summary>
+            Destroys the <see cref="T:Server.Base.NetServer"/> instance.
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetServer.AddReceiveEvent(System.Int32,System.Action{Server.Base.Packets.UserPacket})">
+            <summary>
+            
+            </summary>
+            <param name="msgid"></param>
+            <param name="event"></param>
+        </member>
+        <member name="M:Server.Base.NetServer.Start">
+            <summary>
+            Initialize and start the server.
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetServer.BusinessQueue">
+            <summary>
+            业务线程
+            </summary>  
+        </member>
+        <member name="M:Server.Base.NetServer.Stop">
+            <summary>
+            Stop the server.
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetServer.DisconnectClient(System.Int32)">
+            <summary>
+            Disconnects the client from this server.
+            </summary>
+            <param name="clientId">Client unique Id</param>
+        </member>
+        <member name="M:Server.Base.NetServer.OnClientConnected(Server.Base.NetUser)">
+            <summary>
+            Triggered when a new client is connected to the server.
+            </summary>
+            <param name="connection"></param>
+        </member>
+        <member name="M:Server.Base.NetServer.OnClientDisconnected(Server.Base.NetUser)">
+            <summary>
+            Triggered when a client disconnects from the server.
+            </summary>
+            <param name="connection"></param>
+        </member>
+        <member name="M:Server.Base.NetServer.OnError(System.Exception)">
+            <summary>
+            Triggered when an error occurs on the server.
+            </summary>
+            <param name="exception">Exception</param>
+        </member>
+        <member name="M:Server.Base.NetServer.StartAccept(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Starts the accept connection async operation.
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetServer.ProcessAccept(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Process the accept connection async operation.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Server.Base.NetServer.ProcessSend(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Process the send async operation.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Server.Base.NetServer.ProcessReceive(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Process receieve.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Server.Base.NetServer.CloseConnection(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Close the connection.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Server.Base.NetServer.IO_Completed(System.Object,System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Triggered when a <see cref="T:System.Net.Sockets.SocketAsyncEventArgs"/> async operation is completed.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Server.Base.NetServer.Dispose(System.Boolean)">
+            <summary>
+            Dispose the <see cref="T:Server.Base.NetServer"/> resources.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Server.Base.Server.NetServerConfiguration">
+            <summary>
+            Provide properties to configuration a <see cref="T:Server.Base.NetServer"/>.
+            </summary>
+        </member>
+        <member name="P:Server.Base.Server.NetServerConfiguration.Port">
+            <summary>
+            Gets or sets the port.
+            </summary>
+        </member>
+        <member name="P:Server.Base.Server.NetServerConfiguration.Host">
+            <summary>
+            Gets or sets the host address.
+            </summary>
+        </member>
+        <member name="P:Server.Base.Server.NetServerConfiguration.Backlog">
+            <summary>
+            Gets or sets the listening backlog.
+            </summary>
+        </member>
+        <member name="P:Server.Base.Server.NetServerConfiguration.MaximumNumberOfConnections">
+            <summary>
+            Gets or sets the maximum number of simultaneous connections on the server.
+            </summary>
+        </member>
+        <member name="P:Server.Base.Server.NetServerConfiguration.BufferSize">
+            <summary>
+            Gets or sets the buffer size.
+            </summary>
+        </member>
+        <member name="P:Server.Base.Server.NetServerConfiguration.Address">
+            <summary>
+            Gets the listening address.
+            </summary>
+        </member>
+        <member name="M:Server.Base.Server.NetServerConfiguration.#ctor">
+            <summary>
+            Creates a new <see cref="T:Server.Base.Server.NetServerConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Server.Base.Server.NetServerConfiguration.#ctor(Server.Base.NetServer)">
+            <summary>
+            Creates a new <see cref="T:Server.Base.Server.NetServerConfiguration"/>.
+            </summary>
+            <param name="server">Server reference</param>
+        </member>
+        <member name="M:Server.Base.Server.NetServerConfiguration.SetValue``1(``0@,``0)">
+            <summary>
+            Set the value of a property passed as reference.
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="container"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:Server.Base.NetUser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Server.Base.NetUser.AddUserComponent``1">
+            <summary>
+            添加用户组件
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Server.Base.NetUser.GetUserComponent``1">
+            <summary>
+            获得用户组件
+            </summary>
+            <typeparam name="T">组件类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Server.Base.NetUser.RemoveUserComponent``1">
+            <summary>
+            移除一个组件
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Server.Base.NetUser.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:Server.Base.UserComponent">
+            <summary>
+            用户组件
+            </summary>
+        </member>
+        <member name="M:Server.Base.UserComponent.OnAdd">
+            <summary>
+            被添加到user
+            </summary>
+        </member>
+        <member name="M:Server.Base.UserComponent.OnRemove">
+            <summary>
+            从user移除
+            </summary>
+        </member>
+        <member name="T:Server.Base.Packets.UserPacket">
+            <summary>
+            接受到的包
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.UserPacket.netUser">
+            <summary>
+            发送这个包的用户
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.UserPacket.server">
+            <summary>
+            接受到这个包的服务器
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.UserPacket.size">
+            <summary>
+            包长度
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.UserPacket.msgid">
+            <summary>
+            消息号
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.UserPacket.msgData">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="T:Server.Base.Packets.ClientPacket">
+            <summary>
+            接受到的包
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.ClientPacket.client">
+            <summary>
+            接受到这个包的服务器
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.ClientPacket.size">
+            <summary>
+            包长度
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.ClientPacket.msgid">
+            <summary>
+            消息号
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.ClientPacket.msgData">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="T:Server.Base.Packets.APIProvidePacket">
+            <summary>
+            接受到的包
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.APIProvidePacket.ReqMessage">
+            <summary>
+            接收到的消息
+            </summary>
+        </member>
+        <member name="F:Server.Base.Packets.APIProvidePacket.msgData">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="T:Server.Base.Utils.SocketAsyncEventArgsPool">
+            <summary>
+            Represents an object pool of <see cref="T:System.Net.Sockets.SocketAsyncEventArgs"/> elements.
+            </summary>
+        </member>
+        <member name="M:Server.Base.Utils.SocketAsyncEventArgsPool.#ctor">
+            <summary>
+            Creates a new <see cref="T:Server.Base.Utils.SocketAsyncEventArgsPool"/> instance with a maximal capacity.
+            </summary>
+        </member>
+        <member name="M:Server.Base.Utils.SocketAsyncEventArgsPool.Pop">
+            <summary>
+            Pops a <see cref="T:System.Net.Sockets.SocketAsyncEventArgs"/> of the top of the stack.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Server.Base.Utils.SocketAsyncEventArgsPool.Push(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Push a <see cref="T:System.Net.Sockets.SocketAsyncEventArgs"/> to the top of the stack.
+            </summary>
+            <param name="socketAsyncEventArgs"></param>
+        </member>
+    </members>
+</doc>

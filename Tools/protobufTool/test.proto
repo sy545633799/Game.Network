@@ -1,0 +1,10 @@
+﻿syntax = "proto3";
+package Model; 
+
+message Message //对象出现基本信息
+{
+	string name = 1;
+	int32 job = 2;
+	int32 age = 3;
+	string gender = 4;
+}

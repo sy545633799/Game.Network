@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyTitle>IOCP网络</AssemblyTitle>
+    <TargetFrameworks>netcoreapp2.0;</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile>D:\SVn\GameServer\ServerBase\Server.Base.xml</DocumentationFile>
+    <Optimize>false</Optimize>
+    <OutputPath>D:\SVn\GameServer\Bin\netcoreapp2.0\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp2.0|AnyCPU'">
+    <OutputPath>D:\SVn\GameServer\Bin\</OutputPath>
+    <DocumentationFile>D:\SVn\GameServer\ServerBase\Server.Base.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Google.Protobuf\**" />
+    <EmbeddedResource Remove="Google.Protobuf\**" />
+    <None Remove="Google.Protobuf\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.5.0-rc06" />
+    <PackageReference Include="NLog.InstallNLogConfig" Version="2.0.0" />
+  </ItemGroup>
+</Project>
